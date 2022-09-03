@@ -394,10 +394,10 @@ export function Calculator({ target, preset }) {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">Clear Feedbacks?</DialogTitle>
+          <DialogTitle id="alert-dialog-title">Apagar feedbacks?</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Since you moved to a new track, do you need to load the preset value and clear all previous feedbacks?
+              Como se moveu para uma nova pista, quer carregar os valores predefinidos e apagar os feedbacks anteriores?
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -422,7 +422,7 @@ export function Calculator({ target, preset }) {
                     <TableRow>
                       <TableCell colSpan={2} sx={{ textAlign: 'right' }}>
                         <div style={{ padding: 5, width: "100%" }}>
-                          <Typography sx={{ color: "#777", display: "inline-block", verticalAlign: "middle" }}>Track Select:</Typography>
+                          <Typography sx={{ color: "#777", display: "inline-block", verticalAlign: "middle" }}>Selecionar Pista:</Typography>
                           <FormControl variant="standard" sx={{ ml: 3, display: "inline-block", verticalAlign: "middle" }}>
                             <Select
                               value={track}
@@ -431,7 +431,7 @@ export function Calculator({ target, preset }) {
                                 setTrack(e.target.value);
                                 setOpenClearFeedback(true);
                               }}
-                              label="Track"
+                              label="Pista"
                             >
                               {tracks.map(t => <MenuItem key={t.id} value={t.id}>
                                 <Image src={require(`../assets/flags/${t.id}.svg`)} width={24} height={20} alt={t.country} style={{ display: 'inline-block' }} />
@@ -455,8 +455,8 @@ export function Calculator({ target, preset }) {
                     </TableRow>
                     <TableRow>
                       <TableCell sx={{ width: 160, fontSize: 18 }}><b>Setup</b></TableCell>
-                      <TableCell sx={{ minWidth: 360, fontSize: 18 }}><b>Values</b></TableCell>
-                      <TableCell sx={{ fontSize: 18, textAlign: 'right' }}><b>Compare</b></TableCell>
+                      <TableCell sx={{ minWidth: 360, fontSize: 18 }}><b>Valores</b></TableCell>
+                      <TableCell sx={{ fontSize: 18, textAlign: 'right' }}><b>Comparar</b></TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -517,7 +517,7 @@ export function Calculator({ target, preset }) {
                     <TableRow>
                       <TableCell colSpan={3} sx={{ textAlign: 'right' }}>
                         <Stack direction="row-reverse" spacing={1}>
-                          <Button variant="contained" onClick={findNearest}>Find Setup</Button>
+                          <Button variant="contained" onClick={findNearest}>Encontrar Setup</Button>
                           <Button variant="contained" color="secondary" onClick={
                             () => {
                               const setup = [1, 1, 1, 1, 1];
@@ -547,7 +547,7 @@ export function Calculator({ target, preset }) {
                             }
                           }>Random</Button>
                           <div style={{ padding: 5 }}>
-                            <Typography sx={{ color: "#777" }}>{possibleSetups} Setups Possible</Typography>
+                            <Typography sx={{ color: "#777" }}>{possibleSetups} Ajustes possíveis</Typography>
                           </div>
                         </Stack>
                       </TableCell>
@@ -579,7 +579,7 @@ export function Calculator({ target, preset }) {
                     <TableRow>
                       <TableCell sx={{ width: 120, fontSize: 18 }}><b>Feedback</b></TableCell>
                       <TableCell sx={{ minWidth: 360, fontSize: 18 }}><b>Bias</b></TableCell>
-                      <TableCell sx={{ minWidth: 120, width: 120, fontSize: 18 }}>Value</TableCell>
+                      <TableCell sx={{ minWidth: 120, width: 120, fontSize: 18 }}>Valor</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -609,12 +609,12 @@ export function Calculator({ target, preset }) {
                                     createFeedback(row, biasValue, e.target.value)
                                   }}
                                 >
-                                  <MenuItem value='optimal'>Optimal</MenuItem>
-                                  <MenuItem value='great'>Great</MenuItem>
-                                  <MenuItem value='good'>Good</MenuItem>
-                                  <MenuItem value='bad'>Bad</MenuItem>
-                                  <MenuItem value='bad+'>Bad (Too High)</MenuItem>
-                                  <MenuItem value='bad-'>Bad (Too Low)</MenuItem>
+                                  <MenuItem value='optimal'>Ideal</MenuItem>
+                                  <MenuItem value='great'>Ótimo</MenuItem>
+                                  <MenuItem value='good'>Bom</MenuItem>
+                                  <MenuItem value='bad'>Ruim</MenuItem>
+                                  <MenuItem value='bad+'>Ruim (muito alto)</MenuItem>
+                                  <MenuItem value='bad-'>Ruim (muito baixo)</MenuItem>
                                 </Select>
                               </FormControl>
                             </TableCell>
@@ -707,7 +707,7 @@ export function Calculator({ target, preset }) {
               <div style={{ display: 'flex', height: '100%' }}>
                 <div style={{ flexGrow: 1 }}>
                   <DataGrid
-                    autoHeight
+                    autoHeight>{possibleSetups} Ajustes possíveis<
                     rows={[
                       {
                         arr: prevCarSetup,
@@ -790,16 +790,16 @@ export function Calculator({ target, preset }) {
                   <TableHead>
                     <TableRow>
                       <TableCell><b>Previous Runs</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>FWA</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>RWA</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>ARD</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>TC</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>TO</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Oversteer</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Braking</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Cornering</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Traction</b></TableCell>
-                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Straights</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>AAD</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>AAT</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>DAR</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>CP</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>A</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Sair de Traseira</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Frenagem</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Curvas</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Tração</b></TableCell>
+                      <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}><b>Retas</b></TableCell>
                       <TableCell sx={{ fontSize: 14, p: 0.5, textAlign: "center" }}></TableCell>
                     </TableRow>
                   </TableHead>
@@ -922,7 +922,7 @@ export default function CalculatorPage() {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">Rename This Slot</DialogTitle>
+          <DialogTitle id="alert-dialog-title">Renomear este Slot</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
               {
@@ -933,18 +933,18 @@ export default function CalculatorPage() {
             </DialogContentText>
           </DialogContent>
         </Dialog>
-        <Typography variant="h3" component="h3">F1 Manager Setup Calculator</Typography>
+        <Typography variant="h3" component="h3">F1 Manager - Calculador de Setups</Typography>
         <Divider variant="fullWidth" sx={{ mt: 2, mb: 2 }}/>
         <div>
           <div style={{ float: 'left' }} >
             <Typography sx={{ mt: 1, fontSize: 18 }}>
-              Tutorial / Give award / Favourite: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2855732906">Steam Guide</a>
+              Tutorial / Dá um prémio / Favoritos: <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2855732906">Steam Guide</a>
             </Typography>
             <Typography sx={{ mt: 1, fontSize: 18 }}>
-              Feedbacks / Bug Report: <a href="https://discord.gg/u46QWWaNfV">Discord</a>
+              Feedbacks / Report de Bugs: <a href="https://discord.gg/u46QWWaNfV">Discord</a>
             </Typography>
           </div>
-          <div style={{ float: 'right' }} ><KofiButton kofiID='A0A8ERCTF' title="Support Me on Ko-fi" color='#29abe0' style={{ display: "none"}} /></div>
+          <div style={{ float: 'right' }} ><KofiButton kofiID='A0A8ERCTF' title="Ajuda-me no Ko-fi" color='#29abe0' style={{ display: "none"}} /></div>
           <div style={{ clear: 'both' }} />
         </div>
         <Divider variant="fullWidth" sx={{ mt: 2 }} />
